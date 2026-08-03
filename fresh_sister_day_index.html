@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Happy Sister Day</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Poppins,sans-serif;background:linear-gradient(180deg,#1c1433,#2d1646,#140d24);color:#fff;overflow-x:hidden}
+canvas{position:fixed;inset:0;pointer-events:none}
+section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px 22px;text-align:center;position:relative}
+h1,h2{font-family:"Playfair Display",serif}
+h1{font-size:3rem}
+h2{font-size:2.1rem;margin-bottom:15px}
+.subtitle{letter-spacing:4px;color:#f7a8d4;text-transform:uppercase;font-size:.8rem}
+.hero-card,.glass,.letter{backdrop-filter:blur(18px);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:28px;max-width:720px;width:100%}
+.hero-card{box-shadow:0 20px 60px rgba(0,0,0,.35)}
+p{line-height:1.8;color:#f2edf5}
+.btn{display:inline-block;margin-top:25px;padding:14px 34px;border-radius:40px;background:#f472b6;color:#fff;text-decoration:none;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;width:100%;max-width:900px}
+.item{padding:20px;border-radius:20px;background:rgba(255,255,255,.08)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;max-width:950px}
+.photo{background:#fff;padding:10px;border-radius:16px;color:#333;transform:rotate(-2deg);transition:.35s}
+.photo:nth-child(even){transform:rotate(2deg)}
+.photo:hover{transform:scale(1.04) rotate(0)}
+.photo img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px}
+.photo span{display:block;margin-top:10px;font-family:Caveat,cursive;font-size:1.4rem;color:#d9468f}
+.letter{max-width:700px;text-align:left}
+.letter p{font-family:Caveat,cursive;font-size:1.55rem}
+footer{padding:35px;text-align:center;color:#ddd}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+
+<section>
+<div class="hero-card">
+<div class="subtitle">For Someone Precious</div>
+<h1>Happy Sister Day 🌸</h1>
+<p>Some bonds are created by life, but they become stronger through love, care, trust and unforgettable memories. Today is a celebration of the amazing sister who makes every moment brighter.</p>
+<a href="#about" class="btn">Begin</a>
+</div>
+</section>
+
+<section id="about">
+<div class="glass">
+<div class="subtitle">A Beautiful Bond</div>
+<h2>You're Truly Special</h2>
+<p>Your kindness, encouragement and smile make every difficult day easier. Thank you for always being yourself and for filling life with happiness.</p>
+</div>
+</section>
+
+<section>
+<div class="subtitle">Our Memories</div>
+<h2>Memory Gallery</h2>
+<div class="gallery">
+<div class="photo"><img src="pic1.jpeg"><span>Beautiful Smile 🌷</span></div>
+<div class="photo"><img src="pic2.jpeg"><span>Best Moments ✨</span></div>
+<div class="photo"><img src="pic3.jpeg"><span>Forever Support 💖</span></div>
+<div class="photo"><img src="pic4.jpeg"><span>Sweet Memories 📸</span></div>
+<div class="photo"><img src="pic5.jpeg"><span>Always Together 🤍</span></div>
+<div class="photo"><img src="pic6.jpeg"><span>Family Forever 🌸</span></div>
+</div>
+</section>
+
+<section>
+<div class="subtitle">Reasons</div>
+<h2>What Makes You Amazing</h2>
+<div class="grid">
+<div class="item">💖<h3>Always Caring</h3></div>
+<div class="item">🌸<h3>Kind Heart</h3></div>
+<div class="item">✨<h3>Biggest Support</h3></div>
+<div class="item">🤍<h3>Forever Family</h3></div>
+</div>
+</section>
+
+<section>
+<div class="subtitle">From My Heart</div>
+<h2>A Letter For You</h2>
+<div class="letter">
+<p>Dear Sister,<br><br>
+Thank you for every smile, every piece of advice, every laugh and every memory we've shared. Your support has always meant more than words can express. No matter where life takes us, you'll always have a special place in my heart.<br><br>
+Happy Sister Day. May your life always be filled with happiness, peace and endless smiles.<br><br>
+With love,<br>Your Brother ❤️</p>
+</div>
+<a href="#" class="btn">Back to Top</a>
+</section>
+
+<footer>Made with ❤️ for Sister Day</footer>
+
+<script>
+const c=document.getElementById("bg"),x=c.getContext("2d");
+function rs(){c.width=innerWidth;c.height=innerHeight}rs();onresize=rs;
+const p=[...Array(45)].map(()=>({x:Math.random()*c.width,y:Math.random()*c.height,s:14+Math.random()*12,v:.4+Math.random(),dx:(Math.random()-.5)*.4}));
+(function a(){
+x.clearRect(0,0,c.width,c.height);
+for(const i of p){
+i.y-=i.v;i.x+=i.dx;
+if(i.y<-20){i.y=c.height+20;i.x=Math.random()*c.width;}
+x.font=i.s+"px serif";
+x.fillText("🌸",i.x,i.y);
+x.font=(i.s*.5)+"px serif";
+x.fillText("✨",i.x+10,i.y-4);
+}
+requestAnimationFrame(a);
+})();
+</script>
+</body>
+</html>
